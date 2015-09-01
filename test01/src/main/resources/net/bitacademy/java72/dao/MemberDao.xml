@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace 속성 - SQL문을 찾을 때 주소로 사용한다. - 유지보수 하기 좋게 의미 있는 이름을 지정하라. -->
+<mapper namespace="net.bitacademy.java72.dao.MemberDao">
+  <!-- 컬럼 이름과 객체의 프로퍼티 이름을 연결한다. -->
+  <resultMap type="Member" id="MemberMap">
+    <!-- 결과에 대해 객체를 캐시로 관리한다. 이때 캐시에 저장된 객체를 찾을 때 어떤 값을 사용하는지 지정하는 것이 좋다. 키 
+      컬럼에 대해 <id> 태그를 사용하라. -->
+    <id column="mno" property="no" />
+    <!-- 컬럼 이름과 프로퍼티 이름이 같을 경우 굳이 정의할 필요가 없다. -->
+    <!-- <result column="title" property="title"/> 
+    <result column="content"  property="content"/> -->
+    <result column="cre_dt" property="createDate" />
+    <result column="email" property="email" />
+    <result column="att_file" property="photo" />
+    <result column="mname" property="name"/>
+    <result column="pwd" property="password" />
+    <result column="tel" property="tel" />
+  </resultMap>
+  <!-- select 한 결과를 Board 객체에 담을 때, 컬럼 이름과 일치하는 프로퍼티(setXxxx)를 찾는다. 만약 컬럼 
+    이름과 프로퍼티 이름이 다르다면, 컬럼의 별명을 프로퍼티 이름과 같게 하라 -->
+  <!-- -->
+  <select id="list" parameterType="map" resultMap="MemberMap">
+    SELECT mno,
+    mname,
+    cre_dt,
+    tel,
+    email
+    FROM member
+    ORDER BY mno desc
+    LIMIT #{startIndex}, #{pageSize}
+  </select>
+  <select id="countAll" resultType="int">
+    SELECT count(*)
+    FROM member
+  </select>
+  <select id="get" parameterType="int" resultMap="MemberMap">
+    SELECT mno,
+    mname,
+    email,
+    tel,
+    pwd,
+    att_file, 
+    cre_dt
+    FROM member
+    WHERE mno=#{value}
+  </select>
+  <select id="exist" parameterType="map" resultMap="MemberMap">
+    SELECT mno,
+    mname,
+    email,
+    tel,
+    pwd,
+    att_file, 
+    cre_dt
+    FROM member
+    WHERE email=#{email} and pwd=#{password}
+  </select>
+  <!-- parameterType 속성 : insert()를 호출할 때 넘겨주는 객체의 타입을 지정한다. 파라미터 객체의 값 꺼내는 
+    방법 #{그 객체의 프로퍼티 명} -->
+  <insert id="insert" parameterType="Member">
+    INSERT INTO member(mname, email, pwd, tel, cre_dt, att_file)
+    values ( #{name},#{email},#{password}, #{tel}, now(), #{photo})
+  </insert>
+
+  <update id="update" parameterType="Member">
+    UPDATE member SET
+    mname = #{name} , 
+    tel = #{tel} , 
+    email=#{email},
+    pwd=#{password}, 
+    att_file=#{photo} 
+    WHERE mno=#{no}
+  </update>
+
+  <!-- 만약 파라미터 타입이 원시 타입이라면, 프로퍼티 이름은 마음대로 적어도 된다. -->
+  <delete id="delete" parameterType="int">
+    DELETE FROM member WHERE mno=#{value}
+  </delete>
+  
+<select id="countEmail"  parameterType="string" resultType="int">
+    SELECT count(*)
+    FROM member
+    WHERE email = #{value}
+  </select>
+</mapper>

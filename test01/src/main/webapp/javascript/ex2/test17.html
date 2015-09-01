@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>익명 함수5</title>
+</head>
+<body>
+<script type="text/javascript">
+
+function compute(a,b, cb) {
+	//이렇게 직접 함수를 호출하지 않고, 다른 함수에 의해 호출되는 함수를 콜백("callback")함수라고 부른다.
+	
+	console.log(cb(a, b));
+}
+
+compute(10, 20, function(a,b){return a+b;});
+compute(10, 20, function(a,b){return a-b;});
+compute(10, 20, function(a,b){return a*b;});
+compute(10, 20, function(a,b){return a/b;});
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>함수 파라미터</title>
+</head>
+<body>
+<script type="text/javascript">
+// 함수 파라미터 값은 변수의 개수와 상관없이 넘길수 있다.
+//  => 이런 이유로 인해 오버로딩 문법이 불가능하다.
+
+function plus(a, b) {
+	return a +b;
+}
+
+console.log(plus(10,20));
+console.log(plus(10,20,30));
+console.log(plus(10,20,30,40));
+console.log(plus());
+</script>
+
+</body>
+</html>

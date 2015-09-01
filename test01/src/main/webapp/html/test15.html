@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>test</title>
+<style type="text/css">
+ul {
+list-style: lower-roman;
+}
+
+dt {
+/*board: 1px solid red;*/
+background-color: yellow;
+padding-left: 20px;
+margin-right: 750px; 
+}
+
+table {
+/* border: 1px solid black; */
+border-collapse: collapse;
+}
+
+th, td {
+padding: 5px;
+/* border: 1px solid black; */
+}
+
+tr:NTH-CHILD(odd) {
+  background-color: green;
+}
+
+tr:FIRST-CHILD {
+  background-color: yellow;
+  border-bottom: 1px solid black;
+}
+</style>
+</head>
+<body>
+<!-- 테이블 만들기 
+border 속성: 테이블 테두리와 셀 테두리의 두께를 지정한다.
+* 참고
+속성의 값을 지정할 때 쌍 따옴표(" ") 또는 따옴표(' ') 모두 사용 가능.
+-->
+<table>
+  <tr> <!--  table row -->
+    <th>번호</th> <!-- table header -->
+    <th>이름</th>
+    <th>이메일</th>
+    <th>전화번호</th>
+  </tr>
+  <tr>
+    <td>1</td> <!-- table data -->
+    <td>홍길동</td>
+    <td>hong@test.com</td>
+    <td>111-1111</td>
+  </tr>
+  <tr>
+    <td>2</td> 
+    <td>임꺽정</td>
+    <td>leem@test.com</td>
+    <td>111-2222</td>
+  </tr>
+  <tr>
+    <td>3</td>   
+    <td>유관순</td>
+    <td>yoo@test.com</td>
+    <td>111-3333</td>
+  </tr>
+  <tr>
+    <td>4</td>   
+    <td>신채호</td>
+    <td>shin@test.com</td>
+    <td>111-4444</td>
+  </tr>
+  <tr>
+    <td>5</td>   
+    <td>안중근</td>
+    <td>ahn@test.com</td>
+    <td>111-5555</td>
+  </tr>
+  <tr>
+    <td>6</td>   
+    <td>윤봉길</td>
+    <td>yoon@test.com</td>
+    <td>111-6666</td>
+  </tr>
+  <tr>
+    <td>7</td>   
+    <td>김구</td>
+    <td>kim@test.com</td>
+    <td>111-7777</td>
+  </tr>
+  <tr>
+    <td>8</td>   
+    <td>안창호</td>
+    <td>an@test.com</td>
+    <td>111-8888</td>
+  </tr>
+</table>
+</body>
+</html>

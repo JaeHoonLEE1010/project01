@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>test</title>
+<style type="text/css">
+
+/* table {
+/* border: 1px solid black; 
+border-collapse: collapse;
+}
+
+th, td {
+padding: 5px;
+/* border: 1px solid black; 
+}
+
+tr:NTH-CHILD(odd) {
+  background-color: green;
+}
+
+tr:FIRST-CHILD {
+  background-color: yellow;
+  border-bottom: 1px solid black;
+} */
+</style>
+</head>
+<body>
+<h1>네이버 검색</h1>
+<!-- 
+http://search.naver.com/search.naver?sm=tab_hty.top&where=nexearch&ie=utf8&query=javascript
+hidden type은 화면에는 보이지 않지만 폼 값을 서버에 보낼 때 함께 보내진다.
+ -->
+
+<form action="http://search.naver.com/search.naver" method="get">
+검색어: <input type="text" name="query">
+<input type="hidden" name="sm" value="tab_hty.top">
+<input type="hidden" name="where" value="nexearch">
+<input type="hidden" name="ie" value="utf8">
+<input type="submit" value="검색">
+</form> 
+</body>
+</html>

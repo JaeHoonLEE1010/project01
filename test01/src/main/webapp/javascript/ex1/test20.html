@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>데이터 형변환</h1>
+
+<script type="text/javascript">
+"use strict"
+
+// 자바스크립트는 형 변환 연산자가 없다.
+// * 자바 :(데이터형)변수
+// 자바스크립트는 함수를 사용하여 값을 변환한다.
+// 1) Boolean() 함수 : boolean 형으로 변환
+
+console.log(Boolean(0));
+console.log(Boolean(1));
+console.log(Boolean(-1));
+console.log(Boolean(''));
+console.log(Boolean(' '));
+console.log(Boolean('true'));
+console.log(Boolean('false'));
+console.log(Boolean('hello'));
+console.log(Boolean(null));
+console.log(Boolean(undefined));
+console.log(Boolean(NaN));
+console.log("----------------------");
+
+//2) Number()함수 : 숫자로 데이터형을 바꾸기
+console.log(Number(true));
+console.log(Number(false));
+console.log(Number(''));
+console.log(Number(' '));
+console.log(Number('12'));
+console.log(Number('017'));
+console.log(Number('true'));
+console.log(Number('false'));
+console.log(Number(null));
+console.log(Number(undefined));
+console.log(Number(NaN));
+console.log(Number("2500원"));
+console.log(Number("$2500"));
+console.log(Number([]));
+console.log(Number([10]));
+console.log(Number([10, 20]));
+console.log(Number(["10"]));
+console.log(Number({}));
+console.log("----------------------");
+
+//3) String() 함수: 문자열로 데이터형을 변경하기
+console.log(String(true));
+console.log(String(false));
+console.log(String(12));
+console.log(String(null));
+console.log(String(undefined));
+console.log(String(NaN));
+console.log(String([]));
+console.log(String(["홍길동","임꺽정"]));
+console.log(String({}));
+console.log("-----------------------");
+
+
+</script>
+
+</body>
+</html>

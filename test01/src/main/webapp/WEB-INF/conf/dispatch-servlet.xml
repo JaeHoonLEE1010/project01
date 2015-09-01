@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+
+  <!-- 
+  @Component, @Controller, @Service, @Repository가 
+  붙은 클래스를 찾아서 객체를 생성한다.
+  @Autowired가 붙은 메서드에 대해 의존 객체를 주입한다. -->
+ <context:component-scan base-package="net.bitacademy.java72">
+    <context:exclude-filter type="annotation" 
+       expression="org.springframework.stereotype.Service"/>  
+  </context:component-scan>
+  
+  <!-- 멀티 파트 데이터를 처리할 객체를 준비한다.  -->
+  <bean id="multipartResolver"
+        class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+    <property name="maxUploadSize" value="10000000"/>
+  </bean>
+  
+  <!-- 기존 뷰 리졸버를 대체한다.
+  <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+    <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
+    <property name="prefix" value="/WEB-INF/jsp/"/>
+    <property name="suffix" value=".jsp"/>
+  </bean>
+   -->
+   <!-- 
+   <bean class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
+    <property name="mediaTypes">
+        <map>
+            <entry key="atom" value="application/atom+xml"/>
+            <entry key="html" value="text/html"/>
+            <entry key="json" value="application/json"/>
+        </map>
+    </property>
+     -->
+    <bean class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
+    <!-- 4.2.x 버전에서는  mediaTypes 프로퍼티가 readonly임. 
+        => 외부의 ContentNegotiationManager로 대체함.
+    -->
+    <!--  
+    <property name="mediaTypes">
+        <map>
+            <entry key="atom" value="application/atom+xml"/>
+            <entry key="html" value="text/html"/>
+            <entry key="json" value="application/json"/>
+        </map>
+    </property>
+    -->
+    <property name="contentNegotiationManager" 
+              ref="contentNegotiationManager"/>
+    <property name="viewResolvers">
+        <list>
+            <bean class="org.springframework.web.servlet.view.BeanNameViewResolver"/>
+            <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+                <property name="prefix" value="/WEB-INF/jsp/"/>
+                <property name="suffix" value=".jsp"/>
+            </bean>
+        </list>
+    </property>
+    <property name="defaultViews">
+        <list>
+            <bean class="org.springframework.web.servlet.view.json.MappingJackson2JsonView" />
+        </list>
+    </property>
+  </bean>
+  
+  <bean id="contentNegotiationManager" class="org.springframework.web.accept.ContentNegotiationManagerFactoryBean">
+    <property name="favorPathExtension" value="false" />
+    <property name="favorParameter" value="true" />
+    <property name="mediaTypes" >
+        <value>
+            json=application/json
+            xml=application/xml
+            html=text/html
+            atom=application/atom+xml
+        </value>
+    </property>
+  </bean>
+</beans>

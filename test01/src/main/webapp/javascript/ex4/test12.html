@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>submit 이벤트: 폼 값 유효성 검증</title>
+<style type="text/css">
+* {
+  margin: 20px;
+}
+div, body  {
+  border: 1px solid red;
+}
+</style>
+</head>
+<body>
+<h1>submit 이벤트: 폼 값 유효성 검증</h1>
+<form id='form1' method="get">
+이름:  <input id='name' type='text' name='name'><br>
+나이:  <input id='age' type='text' name='age'><br>
+전화:  <input id='tel' type='text' name='tel'><br>
+<input type='submit' value='등록'>
+
+</form>
+<script type="text/javascript">
+//var f = document.getElementById('form1');
+//f.addEventListener('submit', function(event){
+//  alert('okok');
+//});
+document.getElementById('form1').addEventListener('submit', function(event){
+	if(document.getElementById('name').value =='' || document.getElementById('tel').value==''){
+	 alert('이름과 전화는 필수 항목입니다.');
+	 event.preventDefault(); //이벤트 처리 후 계획되어 있는 기본 작업을 취소한다.
+	 document.getElementById('name').value='';
+	 document.getElementById('tel').value='';
+	}
+});
+</script>
+</body>
+</html>

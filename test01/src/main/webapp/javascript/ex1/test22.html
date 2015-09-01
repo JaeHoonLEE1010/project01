@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>||와 &&를 선택 연산자로 사용하기</h1>
+
+<script type="text/javascript">
+"use strict"
+
+//1) ||와 && 연산자의 기본 동작
+console.log(true || true);
+console.log(true || false);
+console.log(false || true);
+console.log(false || false);
+
+console.log(true && true);
+console.log(true && false);
+console.log(false && true);
+console.log(false && false);
+
+//2) 선택 연산자로서의 ||
+//=> 두 피 연산자가 boolean 형이 아닐 경우, 선택 연산자로 사용된다.
+//=> 첫 번째 값을 boolean으로 바꾼다.
+//		true이면, 첫번째 값을 리턴한다.
+//		false이면, 두번째 값을 리턴한다.
+console.log(0 || "hahaha");
+console.log(42 || "hahaha");
+console.log('42' || "hahaha");
+console.log('' || "hahaha");
+console.log(' ' || "hahaha");
+console.log('hello' || "hahaha");
+console.log('true' || "hahaha");
+console.log('false' || "hahaha");
+console.log(true || "hahaha");
+console.log(false || "hahaha");
+console.log(null || "hahaha");
+console.log(undefined || "hahaha");
+console.log(NaN || "hahaha");
+console.log("-------------------------");
+
+//3) 선택 연산자로서의 &&
+//=> 첫번째 값을 boolean 바꾼값
+//		false: 첫번째 값을 리턴
+//		true: 두번째 값을 리턴
+console.log(0 && "hahaha");
+console.log(42 && "hahaha");
+console.log('42' && "hahaha");
+console.log('' && "hahaha");
+console.log(' ' && "hahaha");
+console.log('hello' && "hahaha");
+console.log('true' && "hahaha");
+console.log('false' && "hahaha");
+console.log(true && "hahaha");
+console.log(false && "hahaha");
+console.log(null && "hahaha");
+console.log(undefined && "hahaha");
+console.log(NaN && "hahaha");
+console.log("-------------------------");
+
+</script>
+
+</body>
+</html>

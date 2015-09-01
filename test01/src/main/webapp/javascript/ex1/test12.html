@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<!-- 변수 선언  -->
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>window 객체와 변수</h1>
+
+<script type="text/javascript">
+"use strict"
+var a = 20;
+console.log(window.a);
+window.a = 30;
+
+function f1() {
+	var a;
+	a=100; 
+	console.log(a, window.a);
+}
+</script>
+
+</body>
+</html>

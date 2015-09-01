@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>함수4</title>
+</head>
+<body>
+<script type="text/javascript">
+// 변수 선언과 마찬가지로 함수 선언도 글로벌 객체 "window"에 소속된다.
+// 앞의 script 태그에서 선언된것은 페이지가 바뀔 때까지 유지된다.
+
+function plus(a, b) {
+	return a +b;
+}
+</script>
+<script type="text/javascript">
+var sum = plus(10, 20); //오류!
+console.log(sum);
+
+</script>
+</body>
+</html>

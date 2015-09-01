@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>test</title>
+<style type="text/css">
+
+/* table {
+/* border: 1px solid black; 
+border-collapse: collapse;
+}
+
+th, td {
+padding: 5px;
+/* border: 1px solid black; 
+}
+
+tr:NTH-CHILD(odd) {
+  background-color: green;
+}
+
+tr:FIRST-CHILD {
+  background-color: yellow;
+  border-bottom: 1px solid black;
+} */
+</style>
+</head>
+<body>
+<!-- 입력폼 만들기
+=> action 속성 지정하기 
+=> method를 get로 지정하기. 지정하지 않으면 기본이 get이다.
+ -->
+<form action="http://www.naver.com" method="get">
+이름: <input type="text" name="name"><br>
+이메일: <input type="email" name="email"><br>
+아이디: <input type="text" name="id"><br>
+암호: <input type="password" name="pwd"><br>
+<input type="submit" value="회원가입">
+<input type="reset">  
+</form>
+<h1>네이버 검색</h1>
+<form action="http://search.naver.com/search.naver" method="get">
+<input type="hidden" name="where" value="nexearch">
+<input type="text" name="query">
+<input type="hidden" name="sm" value="top_hty">
+<input type="hidden" name="fbm" value="1">
+<input type="hidden" name="ie" value="utf8">
+<input type="submit" value="검색">
+</form>
+<!-- 
+* URL 분석 및 용어 정리 
+http://search.naver.com/search.naver?where=nexearch&query=%EC%97%84%EC%A7%84%EC%98%81&sm=top_hty&fbm=1&ie=utf8
+1) 프로토콜 이름
+http
+2) 서버 주소
+search.naver.com(:80 포트번호가 생략됨)
+ 
+3) 서버 애플리케이션 주소
+/search.naver
+4) Query String
+where=nexearch&query=%EC%97%84%EC%A7%84%EC%98%81&sm=top_hty&fbm=1&ie=utf8 
+ -->
+</body>
+</html>

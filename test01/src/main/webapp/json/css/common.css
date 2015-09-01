@@ -1,0 +1,14 @@
+@CHARSET "UTF-8";
+body {
+	font-family: "Yoon Gothic","Apple Gothic","HY Gulim","MalgumGothic","HY Dotum","Lexi Gulim","Helvetica Neue","Helvetica","Arial",sans-serif;
+	font-size: small;
+}
+#main {
+  width: 600px;
+}
+
+#pageFooter {
+  font-size: 70%;
+  padding: 5px;
+  text-align: center;
+}
