@@ -69,6 +69,7 @@ public class AuthController {
     session.invalidate(); 
     HashMap<String, Object> resultMap = new HashMap<String, Object>();
     resultMap.put("result", "success");
+    //이러지말자
     return new Gson().toJson(resultMap);
   }
 }
