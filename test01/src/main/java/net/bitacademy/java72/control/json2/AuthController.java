@@ -37,6 +37,7 @@ public class AuthController {
       Cookie cookie = new Cookie("email", email);
       cookie.setMaxAge(60 * 60 * 24);
       response.addCookie(cookie);
+      //모르겠다.. 졸립다. 아아아
     } else { 
       // 기억하기를 체크하지 않았다면, 쿠키를 무효화 시킨다.
       Cookie cookie = new Cookie("email", "");
